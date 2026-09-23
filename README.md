@@ -1,28 +1,37 @@
 # CareerHub — Linus Fast
 
-Private profiled instance for `Motherpher/CareerHubZero`.
+Private profiled instance of `Motherpher/CareerHubZero`.
 
-## Purpose
-This hub answers two questions at the same time:
-1. Which roles/assignments are functionally relevant?
-2. Which evidence-grounded positioning surfaces produce real market response?
+## Contract
 
-It is not a CV repository. It is a career-state and market-response node.
+This repository contains **profile/config/state/artifacts only**. CareerHub motor logic, HRDM core, schemas and reusable workflows belong exclusively to `Motherpher/CareerHubZero`.
 
-## Architecture
-- `profile/` — frozen candidate evidence and seven signal-ordering surfaces
-- `config/` — search lanes and market experiments
-- `data/` — durable job/application/response state
-- `hrdm/runs/` — full HRDM-R analyses
-- `applications/cases/` — generated application cases
-- `dashboard/` — generated market-response dashboard
-- `docs/` — evidence audit, commands and operating model
+The visible CareerHub journey is:
 
-## Privacy
-Personal contact details, date of birth, national identifiers and street address are deliberately not committed. They are supplied only when an application artifact actually requires them.
+**Find jobs → Analyse? → Apply**
+
+## Profile-specific content
+
+- `profile/candidate.yaml` — evidence-bounded Linus profile
+- `profile/evidence_index.yaml` — provenance and verification support
+- `profile/surfaces/` — alternative evidence-preserving profile emphasis
+- `config/search_profile.yaml` — Linus-specific search configuration
+- `data/job_vault.json` — sourced-job state
+- `data/applications.json` — application/progression state
+- `hrdm/runs/` — generated HRDM run artifacts
+- `applications/cases/` — generated application artifacts
+- `dashboard/` — generated view artifacts
 
 ## Engine
-Pinned to `Motherpher/CareerHubZero@0.2.0-alpha`.
 
-## Operating rule
-Positioning surfaces may change emphasis and signal order, never the evidence bank. Full candidate positioning is produced only after a complete HRDM-R run against a frozen profile snapshot.
+Canonical engine: `Motherpher/CareerHubZero`.
+
+Current stack version is generated/synchronised from ZeroHub and recorded in `instance.yaml` and `stack.lock.yaml`.
+
+## Privacy
+
+Direct contact details, date of birth, national identifiers and street address are not committed.
+
+## Non-drift rule
+
+Profile files may change evidence, preferences and emphasis. This repository must not contain a local CareerHub engine or introduce new base commands/subsystems.
