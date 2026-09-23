@@ -1,0 +1,130 @@
+version: '1.0'
+intent: Discover opportunities broadly enough to learn what the market responds to,
+  while keeping evidence and application decisions separate from discovery.
+geographies:
+  primary:
+  - Stockholm
+  - Uppsala
+  experimental:
+  - Sweden-wide
+  - remote/hybrid roles in Sweden
+  note: Stockholm is an explicit preference. Uppsala is included because of current
+    employment. Remote/hybrid remains experimental rather than a hard preference.
+engagement_types:
+- permanent employment
+- fixed-term employment
+- consulting assignment
+- fractional/embedded advisory where relevant
+salary:
+  employment_market_test: Do not auto-reject by salary unless explicitly stated in
+    the vacancy. Capture salary where available and analyse separately.
+  consulting_general_rate_sek_per_hour_ex_vat: 1200
+  consulting_strategic_reduced_rate_sek_per_hour_ex_vat: 1000
+  consulting_full_time_month_floor_sek: 50000
+  note: Historical job-search salary targets varied by role/seniority; CareerHub should
+    learn role-market response before enforcing one universal salary floor.
+lanes:
+- lane_id: L1
+  name: Strategic process / organisational development
+  priority: core
+  titles:
+  - verksamhetsutvecklare
+  - organisationsutvecklare
+  - processledare
+  - processutvecklare
+  - strategisk verksamhetsutvecklare
+  - transformation lead
+  - organizational development
+  - service/process designer
+- lane_id: L2
+  name: Strategy / governance / public systems
+  priority: core
+  titles:
+  - strateg
+  - utredare
+  - policyanalytiker
+  - strategisk rådgivare
+  - governance
+  - public sector innovation
+  - institutional development
+  - samhällsutvecklare
+- lane_id: L3
+  name: Evaluation / MEAL / learning / analysis
+  priority: core
+  titles:
+  - utvärderare
+  - MEAL
+  - MEL
+  - M&E
+  - analytiker
+  - impact
+  - learning
+  - evaluation advisor
+  - monitoring evaluation
+- lane_id: L4
+  name: Programme / project / innovation leadership
+  priority: core
+  titles:
+  - programledare
+  - program manager
+  - senior projektledare
+  - innovationsledare
+  - utvecklingsledare
+  - change lead
+  - transformation manager
+- lane_id: L5
+  name: Rights / participation / social sustainability
+  priority: core
+  titles:
+  - barnrätt
+  - delaktighet
+  - social hållbarhet
+  - demokratiutveckling
+  - participation
+  - community development
+  - youth engagement
+- lane_id: L6
+  name: Consulting / advisory
+  priority: core
+  titles:
+  - management consultant
+  - senior consultant
+  - strategic advisor
+  - organisationskonsult
+  - verksamhetskonsult
+  - transformation consultant
+- lane_id: L7
+  name: Culture / creative ecosystem
+  priority: adjacent
+  titles:
+  - kulturstrateg
+  - kulturutvecklare
+  - creative industries
+  - program producer
+  - cultural development
+  - music industry
+  - festival development
+- lane_id: L8
+  name: Board / advisory governance
+  priority: experimental
+  titles:
+  - board member
+  - advisory board
+  - nonprofit governance
+  note: Opportunity lane, not conventional employment lane.
+- lane_id: L9
+  name: AI / data-informed organisational transformation
+  priority: adjacent
+  titles:
+  - verksamhetsutvecklare digitalisering
+  - digital transformation
+  - AI transformation
+  - datadriven verksamhetsutveckling
+  - digitaliseringsstrateg
+  - business transformation
+  note: Organisational/process and adoption focus. Do not assume engineering, data-science
+    or vendor-platform specialist competence.
+negative_filters:
+- roles that are primarily pure sales without development/strategy responsibility
+- roles requiring credentials or licenses not evidenced in profile
+triage_rule: Triage may rank; only a full HRDM-R run may produce candidate positioning.
