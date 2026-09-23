@@ -1,0 +1,13 @@
+surface_id: evaluation-learning
+label: Evaluation / MEAL / Learning
+headline: Utvärdering, MEAL och lärandearkitektur för beslut, ansvar och utveckling
+lead_capabilities:
+- C07
+- C12
+- C03
+- C11
+proof_priority:
+- EXP-002
+- EXP-004
+- SRC-FFC-PORTFOLIO
+test_hypothesis: MEAL plus systems/process capability converts strongly into evaluation, learning and evidence roles.
