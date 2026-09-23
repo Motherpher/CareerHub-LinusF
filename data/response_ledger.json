@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "events": [],
+  "stage_vocabulary": [
+    "exposed",
+    "interested",
+    "contacted",
+    "qualified_contact",
+    "interview_1",
+    "interview_deep",
+    "case_or_test",
+    "references",
+    "offer",
+    "assignment",
+    "denied",
+    "withdrawn",
+    "no_response"
+  ]
+}
