@@ -2,21 +2,11 @@ careerhub:
   instance_id: linus-fast
   engine:
     repository: Motherpher/CareerHubZero
-    version: 0.2.0-alpha
-  instance_status: ACTIVE_PRIVATE
-  privacy: private-profiled-instance
+    version: 0.2.2-alpha
 profile:
   path: profile/candidate.yaml
-  evidence_index: profile/evidence_index.yaml
-  surfaces_dir: profile/surfaces
 search:
   path: config/search_profile.yaml
-  experiments: config/market_experiments.yaml
 state:
   job_vault: data/job_vault.json
   applications: data/applications.json
-  response_ledger: data/response_ledger.json
-  experiments: data/experiments.json
-dashboard:
-  path: dashboard/index.html
-  data: dashboard/dashboard.json
