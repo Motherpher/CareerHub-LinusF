@@ -1,0 +1,322 @@
+schema_version: '1.0'
+identity:
+  name: Linus Fast
+  public_profile: https://www.linkedin.com/in/linusfast/
+  base_geography: Stockholm, Sweden
+  current_role: Barnrättslig rådgivare — Barnombudet i Uppsala län
+  contact_policy: Contact details are intentionally not committed. Supply at application-generation time.
+positioning:
+  master_headline: Strategisk processdesigner — organisations- och processutveckling, strategi, utvärdering och institutionell
+    utveckling
+  functional_core: Understand complex operating contexts, identify the organizing problem, design a bounded and usable form,
+    mobilize actors/resources/knowledge, and turn analysis into executable development with learning loops.
+  positioning_rule: Function before title. Every surface must reuse the same verified evidence bank.
+experience:
+- id: EXP-001
+  organization: Barnombudet i Uppsala län
+  role: Barnrättslig rådgivare
+  period: 2024-12 — present
+  location: Uppsala
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+  work:
+  - Strategic and operational implementation of the Convention on the Rights of the Child across municipalities, region and
+    civil society
+  - Develop strategic approaches, education/training and facilitated workshops
+  - Develop participation platform and data-driven development
+  - Use GenAI and agentic-AI as support tools
+- id: EXP-002
+  organization: Rädda Barnen Sverige
+  role: MEAL-rådgivare
+  period: 2022-05 — 2024-11
+  location: Stockholm
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+  work:
+  - Strategic and operational implementation of MEAL
+  - Evaluation, learning, accountability and data-informed decision support
+- id: EXP-003
+  organization: Sensus Skåne-Blekinge / Malmö Tillsammans
+  role: Projektmedarbetare / processledare
+  period: 2021-01 — 2023-04
+  location: Malmö
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+  work:
+  - Process leadership in EU-funded urban-development and collaboration project
+  - Need-driven innovation and cross-sector collaboration
+  - Conceptualise processes into executable strategies and run workshops
+  - Procurement process for project support functions
+- id: EXP-004
+  organization: Form & Flöde
+  role: Grundare / konsult — organisations- och processutveckling
+  period: active; exact start date pending CV reconciliation
+  location: Sweden
+  status: verified-role-date-open
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PROFILE
+  - SRC-FFC-PORTFOLIO
+  work:
+  - Organisational and process development
+  - Strategy, resource logic and project development
+  - Funding/application support
+  - Designed and delivered project-development training
+  documented_claims:
+  - Contributed directly or in support to approximately SEK 4 million in project funding during the first year; attribution
+    must remain contribution-based
+  - Assignments reported as arriving through recommendations
+- id: EXP-005
+  organization: Hyresgästföreningen, Region norra Skåne
+  role: Bostadspolitisk utvecklare / sakkunnig
+  period: 2018-02 — 2020-04
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+  work:
+  - Coordinated regional work for the 2018 election period
+  - Strategic and operational housing-policy development
+  - Subject-matter expertise, debate articles, press contact and external representation
+  - Recurring training for elected representatives
+- id: EXP-006
+  organization: Hyresgästföreningen, Region norra Skåne
+  role: Verksamhetsutvecklare
+  period: 2016-03 — 2020-04
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+  work:
+  - Strategic and operational development of member/popular-movement work across multiple areas
+- id: EXP-007
+  organization: MKB Fastighets AB, kommunikationsavdelningen
+  role: Praktik
+  period: 2015 autumn
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+  work:
+  - Customer-panel investigation and concept description
+  - Marketing plan and communication strategy for new development
+  - Editorial and graphic production
+  - Quotation/procurement-related work
+- id: EXP-008
+  organization: Lunicore
+  role: Konsult
+  period: 2014-12 — 2015-06
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+- id: EXP-009
+  organization: Försäkringskassan
+  role: Försäkringsutredare
+  period: 2012-09 — 2016-03
+  status: verified-current-cv
+  evidence:
+  - SRC-CV-CURRENT
+  - SRC-FFC-PORTFOLIO
+education:
+- institution: Lunds universitet
+  credential: Mastersprogram / mastersstudier i strategisk kommunikation
+  period: 2014 HT — 2016 VT
+  status: verified-current-cv
+  notes: Public relations, strategic brand communication, crisis communication, organisational communication/development,
+    marketing; digital communication/social media across courses.
+- institution: Lunds universitet
+  credential: Fil. kand. i sociologi
+  period: 2012 VT
+  status: verified-current-cv
+  notes: Bachelor thesis on seven sports clubs’ perceived room for manoeuvre; report provided to Skåneidrotten.
+- institution: Malmö högskola
+  credential: Arbetsliv och Mångfald — program, huvudämne arbetsvetenskap
+  period: 2009 HT — 2011 HT
+  status: verified-current-cv
+  notes: Organisational change, labour market, labour law, gender/equality, diversity/recruitment, integration, stress/health.
+- institution: ERASMUS University / intensive course
+  credential: Enduring and Emerging Inequalities
+  period: 2012-02
+  status: verified-current-cv
+  notes: European labour markets and educational systems.
+- institution: Malmö Akademin
+  credential: Medskapande förändring — facilitator- och processledarutbildning
+  period: 2020 — 2021
+  status: verified-current-cv
+- institution: Effektfullt
+  credential: Impact Masterclass — effektmätning
+  period: Spring 2022
+  status: verified-current-cv
+governance_and_voluntary:
+- organization: Open House Stockholm
+  role: Board member
+  period: 2025 — present
+  status: verified-current-cv
+- organization: A Million Minds
+  role: Advisory Board
+  period: 2024 — present
+  status: verified-current-cv
+- organization: Helamalmö
+  role: Strategiskt stöd
+  period: 2020 — 2024
+  status: verified-current-cv
+- organization: Rädda Barnen, Innerstadens lokalförening
+  role: Styrelseledamot
+  period: 2013 — 2015
+  status: verified-current-cv
+- organization: SACO
+  role: Lokalt ombud, förtroendevald
+  period: 2013-11 — 2014-09
+  status: verified-current-cv
+- organization: Malmö högskola — Arbetsliv och Mångfald
+  role: Studentråd
+  period: 2009 — 2011
+  status: verified-current-cv
+- organization: Stapelbäddsparken, Malmö
+  role: Workshop- och utvärderingsledare
+  period: 2007 — 2011
+  status: verified-current-cv
+- organization: Röda Korset — Mosippan, Malmö
+  role: Frivilliguppdrag
+  period: 2006-10 — 2007-05
+  status: verified-current-cv
+cultural_practice:
+  status: verified-cultural-cv
+  writer_poet: 1992 — present; Swedish and English; BLÄCK / [Pre-Sens] at Kulturhuset Stadsteatern, Dec 2024
+  dj_mc_artist: 1996 — present; Daddy Ferma, Abnocal, Señor Día y Noche / Salsa Nirvana, Sublime Groove
+  grand_flows: 2021 — present; stage/festival work, coordination, artist liaison, management/advice, PR, contracts, procurement,
+    venue/resource logistics, funding applications and strategic development
+  creative_tools:
+  - Adobe/Affinity — good level
+  - Ableton / DAW practice
+  - audio editing — general
+  - video editing — beginner/moderate; keep conservative in applications
+capability_clusters:
+- id: C01
+  name: Organisations- och processutveckling
+  evidence:
+  - EXP-004
+  - EXP-006
+  - EXP-003
+- id: C02
+  name: Systemtänkande och komplexitet
+  evidence:
+  - SRC-FFC-PROFILE
+  - SRC-FFC-PORTFOLIO
+- id: C03
+  name: Strategi och strategisk design
+  evidence:
+  - EXP-004
+  - EXP-005
+  - EXP-001
+- id: C04
+  name: Facilitering och processledning
+  evidence:
+  - EXP-003
+  - EXP-001
+- id: C05
+  name: Projekt- och programutveckling
+  evidence:
+  - EXP-004
+  - SRC-FFC-PORTFOLIO
+- id: C06
+  name: Finansiering, ansökningar och resursmobilisering
+  evidence:
+  - EXP-004
+  - SRC-FFC-PORTFOLIO
+- id: C07
+  name: Utvärdering, MEAL och lärandearkitektur
+  evidence:
+  - EXP-002
+  - SRC-FFC-PORTFOLIO
+- id: C08
+  name: Barnrätt, delaktighet och ungdomsinsikt
+  evidence:
+  - EXP-001
+  - EXP-002
+  - SRC-FFC-PORTFOLIO
+- id: C09
+  name: Offentlig styrning och institutionell design
+  evidence:
+  - EXP-005
+  - EXP-009
+  - EXP-001
+  - SRC-FFC-PORTFOLIO
+- id: C10
+  name: Sektorsöverskridande samverkan och ekosystem
+  evidence:
+  - EXP-003
+  - EXP-004
+  - SRC-FFC-PORTFOLIO
+- id: C11
+  name: Strategisk kommunikation och kunskapsöversättning
+  evidence:
+  - EXP-005
+  - EXP-007
+  - education
+- id: C12
+  name: Research, syntes och ramverksutveckling
+  evidence:
+  - SRC-FFC-PROFILE
+  - SRC-FFC-PORTFOLIO
+- id: C13
+  name: Operativ rådgivning och embedded development
+  evidence:
+  - EXP-004
+  - EXP-001
+  - SRC-FFC-PORTFOLIO
+- id: C14
+  name: Innovation och prototyping
+  evidence:
+  - EXP-003
+  - SRC-FFC-PORTFOLIO
+tools_and_languages:
+  languages:
+  - language: English
+    level: Advanced speaking and writing
+    status: verified-current-cv
+  - language: Swedish
+    level: Primary professional language; formal level not stated in CV
+    status: observed-not-formally-labelled
+  digital_tools:
+  - tool: Office / Outlook
+    level: Good
+    status: verified-current-cv
+  - tool: Adobe / Affinity suite
+    level: Good
+    status: verified-current-and-cultural-cv
+  - tool: Mac / PC environment
+    level: Good
+    status: verified-current-cv
+  - tool: Audio editing
+    level: General
+    status: verified-current-cv
+  - tool: Video editing
+    level: Beginner
+    status: verified-current-cv
+  - tool: GenAI / Agentic AI
+    level: Used as support in current work; do not infer specific platform proficiency
+    status: verified-current-cv
+claim_guardrails:
+- Do not infer exact start date for Form & Flöde until CV/registration source is reconciled.
+- Approximately SEK 4 million is a contribution claim, not sole attribution.
+- Do not convert employee/advisory experience into formal board authority.
+- Do not convert framework development into independently validated impact without outcome evidence.
+- Do not claim tool proficiency beyond the source wording.
+- Candidate positioning for any HRDM run must use a frozen profile snapshot from this instance.
+verification_needed:
+- Exact Form & Flöde start date and legal-business chronology.
+- 'Formal completion/degree wording for Strategic Communication: current source says Mastersprogram/mastersstudier; avoid
+  silently calling it a completed master degree unless documentation confirms it.'
+- Reconcile Erasmus institution naming as written in source with formal institution metadata before public publishing.
+- LinkedIn reconciliation remains pending because LinkedIn content was not directly fetched.
+- Detailed outcome attribution for individual funding applications and consulting cases.
+- 'Hypergene/Stratsys and similar governance platforms: familiarity/functional understanding may be discussed only when supported
+  by the specific source; do not claim hands-on specialist proficiency without evidence.'
