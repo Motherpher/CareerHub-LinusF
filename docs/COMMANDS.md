@@ -1,12 +1,11 @@
-# Commands
+# CareerHub user contract
 
-| Command | Purpose | Writes state? |
-|---|---|---|
-| `CareerHub: Find` | Discover and triage jobs | job vault only when saved |
-| `CareerHub: Analyse <URL/id>` | Full HRDM-R | yes, HRDM run |
-| `CareerHub: Apply <id>` | Generate application case from verified evidence | yes |
-| `CareerHub: Status` | Pipeline overview | no |
-| `CareerHub: Napp` | Market-response analytics | no |
-| `CareerHub: Show profile <surface>` | Inspect one positioning surface | no |
+The canonical user journey is owned by CareerHubZero:
 
-The hub does not auto-submit applications. A human decision remains required before external submission.
+1. `CareerHub: Find` — source and triage jobs.
+2. `CareerHub: Analyse <URL/id>` — run the full canonical HRDM-R sequence for a selected role.
+3. `CareerHub: Apply <id>` — produce an evidence-bounded application case after analysis.
+
+Application status/progression is state inside the Apply workflow; it is not a separate CareerHub product layer.
+
+This profiled instance must not create additional canonical commands.
