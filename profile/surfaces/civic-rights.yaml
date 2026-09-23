@@ -1,0 +1,15 @@
+surface_id: civic-rights
+label: Civic / Rights / Participation
+headline: Barnrätt, delaktighet och samhällsutveckling med system- och genomförandefokus
+lead_capabilities:
+- C08
+- C09
+- C10
+- C04
+- C07
+proof_priority:
+- EXP-001
+- EXP-002
+- EXP-003
+test_hypothesis: Rights-based and participation expertise produces response when framed as institutional capability,
+  not narrow specialist identity.
