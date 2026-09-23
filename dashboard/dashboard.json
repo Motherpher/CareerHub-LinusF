@@ -1,105 +1,12 @@
 {
-  "candidate": "Linus Fast",
-  "engine": "CareerHubZero 0.2.0-alpha",
-  "status": "Ready — no market observations yet",
-  "surfaces": [
-    {
-      "id": "ai-data-transformation",
-      "label": "AI / Data-Informed Transformation"
-    },
-    {
-      "id": "civic-rights",
-      "label": "Civic / Rights / Participation"
-    },
-    {
-      "id": "consulting-advisory",
-      "label": "Consulting / Advisory"
-    },
-    {
-      "id": "culture-creative",
-      "label": "Culture / Creative Ecosystems"
-    },
-    {
-      "id": "evaluation-learning",
-      "label": "Evaluation / MEAL / Learning"
-    },
-    {
-      "id": "strategy-governance",
-      "label": "Strategy / Governance"
-    },
-    {
-      "id": "systems-process",
-      "label": "Systems / Process Designer"
-    }
-  ],
-  "lanes": [
-    {
-      "id": "L1",
-      "name": "Strategic process / organisational development",
-      "priority": "core"
-    },
-    {
-      "id": "L2",
-      "name": "Strategy / governance / public systems",
-      "priority": "core"
-    },
-    {
-      "id": "L3",
-      "name": "Evaluation / MEAL / learning / analysis",
-      "priority": "core"
-    },
-    {
-      "id": "L4",
-      "name": "Programme / project / innovation leadership",
-      "priority": "core"
-    },
-    {
-      "id": "L5",
-      "name": "Rights / participation / social sustainability",
-      "priority": "core"
-    },
-    {
-      "id": "L6",
-      "name": "Consulting / advisory",
-      "priority": "core"
-    },
-    {
-      "id": "L7",
-      "name": "Culture / creative ecosystem",
-      "priority": "adjacent"
-    },
-    {
-      "id": "L8",
-      "name": "Board / advisory governance",
-      "priority": "experimental"
-    },
-    {
-      "id": "L9",
-      "name": "AI / data-informed organisational transformation",
-      "priority": "adjacent"
-    }
-  ],
-  "counts": {
-    "jobs": 0,
-    "applications": 0,
-    "responses": 0,
-    "interviews": 0,
-    "offers": 0,
-    "assignments": 0
+  "instance_id": "linus-fast",
+  "engine": {
+    "repository": "Motherpher/CareerHubZero",
+    "version": "0.2.2-alpha"
   },
-  "funnel": [
-    "exposed",
-    "interested",
-    "contacted",
-    "qualified_contact",
-    "interview_1",
-    "interview_deep",
-    "case_or_test",
-    "references",
-    "offer",
-    "assignment",
-    "denied",
-    "withdrawn",
-    "no_response"
-  ]
+  "candidate": "Linus Fast",
+  "headline": "Strategisk processdesigner — organisations- och processutveckling, strategi, utvärdering och institutionell utveckling",
+  "jobs": 0,
+  "applications": 0,
+  "status_counts": {}
 }
