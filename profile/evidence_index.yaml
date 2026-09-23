@@ -1,0 +1,54 @@
+evidence_policy:
+  priority:
+  - verified employment/assignment documentation
+  - current CV
+  - produced project/programme material
+  - authored publications/frameworks
+  - F&F case/evidence records
+  - public profile/LinkedIn
+  - historical biographies
+  rule: Unknown remains unknown. Application claims must resolve to at least one source_id.
+sources:
+- source_id: SRC-CV-CURRENT
+  class: primary-career-source
+  title: Linus Fast, Personligt brev och CV (SE).pdf
+  location: Google Drive file 18tdF1G7isfPkpRfUd9bpkDLf69WgHOvH
+  use: current chronology, education, roles, tools, languages, board/voluntary roles
+  sensitivity: private; do not reproduce personal identifiers
+- source_id: SRC-CV-2024
+  class: historical-career-source
+  title: Linus Fast - CV, Personligt brev - 2024-06-12.pdf
+  location: Google Drive file 1BoUAEaxaIhgXVijidoFDUkUWkBWomb04
+  use: historical cross-check and richer role description
+  sensitivity: private
+- source_id: SRC-CV-CULTURE
+  class: primary-cultural-source
+  title: Linus Fast, Kultur-CV-Personligt brev och CV (SE, Eng) - 2025-10-05.pdf
+  location: Google Drive file 1SSEp9zRwLrGuJZSe8lkUP53yYpaIDnIq
+  use: cultural practice, Grand Flows, creative tools
+  sensitivity: private
+- source_id: SRC-FFC-PROFILE
+  class: governed-secondary-evidence
+  title: Hybrismannen/form-flode/14-profile
+  location: private GitHub repository
+  use: competence architecture and evidence governance
+- source_id: SRC-FFC-PORTFOLIO
+  class: governed-secondary-evidence
+  title: Comprehensive Portfolio Register
+  location: Hybrismannen/form-flode/14-profile/comprehensive-portfolio-register.md
+  use: case/evidence inventory; stronger claims require underlying documents
+- source_id: SRC-HRDM-6.3
+  class: protocol
+  title: HR-Depth Module v6.3
+  location: Jobb & CV project file / CareerHubZero core
+  use: role analysis and evidence-bounded candidate positioning
+- source_id: SRC-HY-FILTER
+  class: protocol
+  title: Hybridianesque
+  location: Jobb & CV project file
+  use: optional complexity filter only when criteria are present
+- source_id: SRC-PUBLICIST
+  class: protocol
+  title: The Writer and the Beast
+  location: Jobb & CV project file
+  use: editorial/deployment review for finished application text
