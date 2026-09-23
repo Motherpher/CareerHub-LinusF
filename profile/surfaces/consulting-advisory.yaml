@@ -1,0 +1,16 @@
+surface_id: consulting-advisory
+label: Consulting / Advisory
+headline: Senior rådgivning och utvecklingskapacitet från analys till genomförande
+lead_capabilities:
+- C01
+- C03
+- C05
+- C06
+- C13
+- C14
+proof_priority:
+- EXP-004
+- SRC-FFC-PORTFOLIO
+- EXP-003
+test_hypothesis: Hands-on advisory profile attracts consulting and fractional/embedded assignments where clients
+  need both design and delivery.
