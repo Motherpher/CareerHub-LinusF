@@ -1,4 +1,4 @@
-version: '1.0'
+version: "2.0"
 intent: Discover opportunities broadly enough to learn what the market responds to,
   while keeping evidence and application decisions separate from discovery.
 geographies:
@@ -128,3 +128,8 @@ negative_filters:
 - roles that are primarily pure sales without development/strategy responsibility
 - roles requiring credentials or licenses not evidenced in profile
 triage_rule: Triage may rank; only a full HRDM-R run may produce candidate positioning.
+
+user_search_overlay:
+  source: user_input
+  scope: search_only
+  specific_wishes_or_needs: ""
