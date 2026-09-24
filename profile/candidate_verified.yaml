@@ -1,0 +1,175 @@
+identity:
+  name: "Linus Fast"
+
+career_sources:
+  - id: SRC-CV-CURRENT
+    source_type: cv
+    reference: "Google Drive file 18tdF1G7isfPkpRfUd9bpkDLf69WgHOvH"
+    verification_status: verified
+    verified_at: "2026-09-24"
+    notes: "Primary current career source. Personal identifiers are not reproduced in the repository."
+  - id: SRC-CV-2024
+    source_type: cv
+    reference: "Google Drive file 1BoUAEaxaIhgXVijidoFDUkUWkBWomb04"
+    verification_status: verified
+    verified_at: "2026-09-24"
+    notes: "Historical CV used only for chronology and richer role cross-checks."
+  - id: SRC-CV-CULTURE
+    source_type: cv
+    reference: "Google Drive file 1SSEp9zRwLrGuJZSe8lkUP53yYpaIDnIq"
+    verification_status: verified
+    verified_at: "2026-09-24"
+    notes: "Primary source for cultural practice and creative tools."
+  - id: SRC-FFC-PROFILE
+    source_type: verified_project_record
+    reference: "Motherpher/form-flode/14-profile"
+    verification_status: verified
+    verified_at: "2026-09-24"
+    notes: "Governed secondary evidence; do not use for stronger public claims without underlying support."
+  - id: SRC-FFC-PORTFOLIO
+    source_type: verified_project_record
+    reference: "Motherpher/form-flode/14-profile/comprehensive-portfolio-register.md"
+    verification_status: verified
+    verified_at: "2026-09-24"
+    notes: "Case/evidence inventory. Stronger external claims require the underlying source."
+
+evidence:
+  - id: ev-lf-001
+    claim: "Current career evidence supports work as a barnrättslig rådgivare with strategic and operational implementation of the Convention on the Rights of the Child, training/workshops, participation work and data-informed development."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+    external_use: true
+  - id: ev-lf-002
+    claim: "Career evidence supports prior work as a MEAL-rådgivare with strategic and operational implementation of monitoring, evaluation, accountability and learning."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+    external_use: true
+  - id: ev-lf-003
+    claim: "Career evidence supports process leadership in an EU-funded urban-development and collaboration project, including need-driven innovation, cross-sector collaboration, workshop facilitation and process-to-strategy translation."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+      - SRC-CV-2024
+    external_use: true
+  - id: ev-lf-004
+    claim: "Career evidence supports consulting and founder experience in organisational and process development, strategy, project development, funding/application support and project-development training."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+      - SRC-FFC-PORTFOLIO
+    external_use: true
+    notes: "Exact Form & Flöde start date remains unresolved and is not encoded in this claim."
+  - id: ev-lf-005
+    claim: "Career evidence supports strategic and operational housing-policy development, subject-matter work, public communication and recurring training for elected representatives."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+      - SRC-CV-2024
+    external_use: true
+  - id: ev-lf-006
+    claim: "Career evidence supports verksamhetsutveckling focused on member/popular-movement work across multiple areas."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+      - SRC-CV-2024
+    external_use: true
+  - id: ev-lf-007
+    claim: "Career evidence supports investigative public-administration experience from Försäkringskassan."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+    external_use: true
+  - id: ev-lf-008
+    claim: "Education evidence supports strategic communication studies at Lund University and a bachelor's degree in sociology."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+    external_use: true
+    notes: "Do not convert strategic communication studies into a completed master's degree without separate documentation."
+  - id: ev-lf-009
+    claim: "Education evidence supports studies in work science, organisational change, labour-market and diversity topics, plus facilitator/process-leadership training and impact-measurement training."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+    external_use: true
+  - id: ev-lf-010
+    claim: "Career evidence supports facilitation, process leadership, strategy development and cross-sector collaboration as recurring professional functions."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+      - SRC-CV-2024
+    external_use: true
+  - id: ev-lf-011
+    claim: "Career evidence supports evaluation, learning and data-informed decision support through MEAL-related professional practice."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+    external_use: true
+  - id: ev-lf-012
+    claim: "Career evidence supports strategic communication, research/synthesis and translation of complex material into usable strategies, briefs, workshops or development processes."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+      - SRC-CV-2024
+    external_use: true
+  - id: ev-lf-013
+    claim: "Cultural career evidence supports long-running practice as writer/poet and DJ/MC/artist, plus stage/festival coordination, artist liaison, PR, contracts, procurement, logistics, funding applications and strategic development."
+    status: verified
+    source_ids:
+      - SRC-CV-CULTURE
+    external_use: true
+  - id: ev-lf-014
+    claim: "Current CV evidence supports use of Office/Outlook, Adobe/Affinity, audio editing and GenAI/agentic-AI as support tools, with proficiency limited to the source wording."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+      - SRC-CV-CULTURE
+    external_use: true
+  - id: ev-lf-015
+    claim: "Current CV evidence supports advanced spoken and written English."
+    status: verified
+    source_ids:
+      - SRC-CV-CURRENT
+    external_use: true
+
+positioning:
+  headline: "Strategic process and organisational-development practitioner with verified experience across strategy, facilitation, evaluation/MEAL, rights-based work and institutional development"
+  functional_core:
+    - "Organisational and process development"
+    - "Strategy and strategic design"
+    - "Facilitation and process leadership"
+    - "Evaluation, MEAL and learning"
+    - "Rights, participation and social sustainability"
+    - "Cross-sector collaboration"
+    - "Strategic communication and research synthesis"
+  derived_from_evidence_ids:
+    - ev-lf-001
+    - ev-lf-002
+    - ev-lf-003
+    - ev-lf-004
+    - ev-lf-005
+    - ev-lf-010
+    - ev-lf-011
+    - ev-lf-012
+
+verification_queue:
+  - id: lf-form-flode-start
+    question: "Verify exact Form & Flöde start date and legal-business chronology before using exact dates externally."
+    status: open
+  - id: lf-master-wording
+    question: "Verify formal completion/degree wording for Strategic Communication before describing it as a completed master's degree."
+    status: open
+  - id: lf-erasmus-metadata
+    question: "Reconcile Erasmus institution naming with formal institution metadata before public publishing."
+    status: open
+  - id: lf-linkedin
+    question: "Reconcile LinkedIn only if its content is directly supplied or otherwise verified."
+    status: open
+  - id: lf-funding-attribution
+    question: "Keep funding claims contribution-based unless underlying case evidence supports stronger attribution."
+    status: open
+  - id: lf-governance-platforms
+    question: "Do not claim hands-on Hypergene/Stratsys specialist proficiency without source evidence."
+    status: open
