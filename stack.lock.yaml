@@ -2,7 +2,8 @@ schema_version: "1.0"
 stack_id: careerhub
 instance_id: linus-fast
 engine_repository: Motherpher/CareerHubZero
-engine_version: 0.2.2-alpha
+engine_version: 0.2.4-alpha
 alignment: aligned
 blockers: []
 generated_by: Motherpher/CareerHubZero
+note: Thin profile instance using the canonical verified-career evidence contract.
