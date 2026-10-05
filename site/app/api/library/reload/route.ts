@@ -10,7 +10,7 @@ export async function POST() {
     schema_version: '1.0',
     profile_id: profileId,
     rebuilt_at: new Date().toISOString(),
-    active_sources: result.blobs.map((blob) => ({ pathname: blob.pathname, content_type: blob.contentType, size: blob.size, uploaded_at: blob.uploadedAt }))
+    active_sources: result.blobs.map((blob) => ({ pathname: blob.pathname, size: blob.size, uploaded_at: blob.uploadedAt }))
   };
   const blob = await put(`${root}indexes/latest.json`, JSON.stringify(index, null, 2), { access: 'private', addRandomSuffix: false, allowOverwrite: true, contentType: 'application/json' });
   return NextResponse.json({ reloaded: true, active_sources: index.active_sources.length, index_pathname: blob.pathname, message: `Library reloaded — ${index.active_sources.length} active sources indexed.` });
