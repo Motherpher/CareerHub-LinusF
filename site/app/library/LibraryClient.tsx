@@ -16,14 +16,14 @@ export default function LibraryClient() {
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
 
-  const reload = useCallback(async () => {
+  const refreshFiles = useCallback(async () => {
     const response = await fetch('/api/library', { cache: 'no-store' });
     const data = await response.json().catch(() => ({}));
     setFiles(data.files ?? []);
     if (!response.ok && data.error) setMessage(data.error);
   }, []);
 
-  useEffect(() => { void reload(); }, [reload]);
+  useEffect(() => { void refreshFiles(); }, [refreshFiles]);
 
   async function upload(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -32,20 +32,28 @@ export default function LibraryClient() {
     const response = await fetch('/api/library', { method: 'POST', body: form });
     const data = await response.json().catch(() => ({}));
     setMessage(response.ok ? 'Document uploaded and activated.' : (data.error ?? 'Upload failed.'));
-    if (response.ok) { event.currentTarget.reset(); await reload(); }
+    if (response.ok) { event.currentTarget.reset(); await refreshFiles(); }
     setBusy(false);
   }
 
-  async function setActive(file: LibraryFile) {
+  async function manage(file: LibraryFile, action: 'activate' | 'deactivate' | 'erase') {
+    if (action === 'erase' && !window.confirm(`Erase ${file.display_name} from your private CareerHub library?`)) return;
     setBusy(true); setMessage('');
     const response = await fetch('/api/library', {
-      method: 'PATCH',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ pathname: file.pathname, action: file.active ? 'deactivate' : 'activate' })
+      method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ pathname: file.pathname, action })
     });
     const data = await response.json().catch(() => ({}));
-    setMessage(response.ok ? (file.active ? 'Source deactivated.' : 'Source activated.') : (data.error ?? 'Update failed.'));
-    if (response.ok) await reload();
+    const success = action === 'erase' ? 'Source erased.' : action === 'activate' ? 'Source activated.' : 'Source deactivated.';
+    setMessage(response.ok ? success : (data.error ?? 'Update failed.'));
+    if (response.ok) await refreshFiles();
+    setBusy(false);
+  }
+
+  async function rebuildIndex() {
+    setBusy(true); setMessage('');
+    const response = await fetch('/api/library/reload', { method: 'POST' });
+    const data = await response.json().catch(() => ({}));
+    setMessage(response.ok ? (data.message ?? 'CareerHub library reloaded.') : (data.error ?? 'Library reload failed.'));
     setBusy(false);
   }
 
@@ -60,6 +68,9 @@ export default function LibraryClient() {
         <button disabled={busy} type="submit">{busy ? 'Working…' : 'Upload document'}</button>
       </form>
 
+      <div className="inline-actions">
+        <button className="button button--primary" type="button" disabled={busy} onClick={() => void rebuildIndex()}>Reload CareerHub Library</button>
+      </div>
       {message ? <p role="status" className="wish-status">{message}</p> : null}
 
       <div className="section-stack">
@@ -71,7 +82,8 @@ export default function LibraryClient() {
             </div>
             <div className="inline-actions">
               <a className="button" href={`/api/library/file?pathname=${encodeURIComponent(file.pathname)}`} target="_blank" rel="noreferrer">Open</a>
-              <button className="button" type="button" disabled={busy} onClick={() => void setActive(file)}>{file.active ? 'Deactivate' : 'Activate'}</button>
+              <button className="button" type="button" disabled={busy} onClick={() => void manage(file, file.active ? 'deactivate' : 'activate')}>{file.active ? 'Deactivate' : 'Activate'}</button>
+              <button className="button" type="button" disabled={busy} onClick={() => void manage(file, 'erase')}>Erase</button>
             </div>
           </div>
         )) : <div className="empty-state">No uploaded library sources yet.</div>}
