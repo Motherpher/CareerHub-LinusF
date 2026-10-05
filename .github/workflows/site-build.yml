@@ -1,0 +1,33 @@
+name: CareerHub Site Build
+
+on:
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'personalisation/**'
+      - 'careerhub.yaml'
+      - 'profile/**'
+      - 'config/**'
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'personalisation/**'
+      - 'careerhub.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: site/package.json
+      - name: Install dependencies
+        working-directory: site
+        run: npm install --no-audit --no-fund
+      - name: Build
+        working-directory: site
+        run: npm run build
