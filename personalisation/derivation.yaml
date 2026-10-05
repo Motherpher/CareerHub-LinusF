@@ -1,0 +1,90 @@
+schema_version: "1.0"
+profile_id: "linus-fast"
+status: "REFERENCE_PENDING"
+
+vectors:
+  identity:
+    - "Visible product identity is Linus Fast; technical repo/project names remain hidden."
+    - "Professional framing centres strategy, process, organisational/institutional development and translation of complexity into usable structures."
+  work_logic:
+    - "System/process architecture and strategic development are primary organising logics."
+    - "Evaluation/MEAL, rights/participation, consulting, culture/creative practice and AI/data-informed transformation are distinct but connected surfaces."
+  information_need:
+    - "Dense information is acceptable when hierarchy is strong."
+    - "Show current profile state and current search state before deeper CareerHub machinery."
+    - "Internal trace/process language belongs in advanced views, not the everyday surface."
+  career_surface:
+    - "Systems / Process"
+    - "Strategy / Governance"
+    - "Evaluation / MEAL"
+    - "Civic / Rights"
+    - "Consulting / Advisory"
+    - "Culture / Creative"
+    - "AI / Data-Informed Transformation"
+  voice:
+    - "Direct, analytical and exact."
+    - "Core/frame sentence first; bridge or forward explanation second."
+    - "Avoid generic motivation, HR boilerplate and contrast-led framing."
+  visual_grammar:
+    - "Structured, information-forward and editorial as provisional baseline."
+    - "Pinterest-derived visual grammar remains pending direct visual harvest."
+  interaction:
+    - "Profile → Search → Analyse → Apply → Track is the primary journey."
+    - "Profile and search defaults are visible and editable before search execution."
+    - "Library and source provenance are first-class because evidence management is important to this profile."
+  reference_provenance:
+    - "profile/candidate_verified.yaml"
+    - "SRC-PIN-001"
+    - "SRC-PIN-002"
+    - "SRC-CHAT-UX-001"
+    - "SRC-CHAT-LF-001"
+    - "SRC-CHAT-LF-002"
+
+decisions:
+  - id: "LF-D01"
+    dimension: "information_hierarchy"
+    decision: "Profile status and search coverage appear before opportunity/application detail."
+    source_state: "EXPLICIT_USER"
+    source_refs: ["SRC-CHAT-UX-001"]
+  - id: "LF-D02"
+    dimension: "module_order"
+    decision: "Home order prioritises identity, profile health, search coverage and next action before opportunities and pipeline."
+    source_state: "USABILITY_TEST"
+    source_refs: ["SRC-CHAT-UX-001"]
+  - id: "LF-D03"
+    dimension: "career_surfaces"
+    decision: "Expose seven professional surfaces while retaining one verified evidence base."
+    source_state: "CHAT_PATTERN"
+    source_refs: ["SRC-CHAT-LF-002", "profile/candidate_verified.yaml"]
+  - id: "LF-D04"
+    dimension: "voice"
+    decision: "Use direct analytical copy with frame-first sentence logic and minimal motivational language."
+    source_state: "CHAT_PATTERN"
+    source_refs: ["SRC-CHAT-LF-001"]
+  - id: "LF-D05"
+    dimension: "density"
+    decision: "Use dense information with strong hierarchy and progressive disclosure rather than an airy generic career portal."
+    source_state: "CHAT_PATTERN"
+    source_refs: ["SRC-CHAT-LF-001"]
+  - id: "LF-D06"
+    dimension: "interaction_defaults"
+    decision: "Primary navigation starts with Profile then Search and follows the career-action sequence."
+    source_state: "EXPLICIT_USER"
+    source_refs: ["SRC-CHAT-UX-001"]
+  - id: "LF-D07"
+    dimension: "visual_grammar"
+    decision: "Reserve final graphical lock until nominated Pinterest references are directly harvested; current visual tokens are provisional."
+    source_state: "REFERENCE_PENDING"
+    source_refs: ["SRC-PIN-001", "SRC-PIN-002"]
+  - id: "LF-D08"
+    dimension: "content_framing"
+    decision: "Frame the site around current profile, current search and movement through opportunities rather than internal CareerHub terminology."
+    source_state: "USABILITY_TEST"
+    source_refs: ["SRC-CHAT-UX-001", "SRC-CHAT-LF-001"]
+
+genericity_audit:
+  eligible_dimensions: 8
+  changed_dimensions: 7
+  score: 0.875
+  result: "WARN"
+  note: "Material differentiation is strong, but visual grammar remains reference-pending; PERSONALISATION_LOCK is therefore not permitted yet."

@@ -1,0 +1,19 @@
+schema_version: "1.0"
+profile_id: "linus-fast"
+status: "REFERENCE_PENDING"
+references:
+  - "SRC-PIN-001"
+  - "SRC-PIN-002"
+observations:
+  typography: null
+  grid_layout: null
+  whitespace_density: null
+  geometry: null
+  hierarchy: null
+  colour_logic: null
+  surface_behaviour: null
+  iconography: null
+  data_visualisation: null
+  imagery: null
+  motion: null
+lock_rule: "Do not claim Pinterest-derived graphical attributes until the references have been directly inspected. Current theme tokens are provisional structural defaults only."

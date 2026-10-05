@@ -1,0 +1,56 @@
+schema_version: "1.0"
+
+identity:
+  display_name: "Linus Fast"
+  strapline: "Strategy, process and institutional development — turning complex fields into usable structures."
+  language: "en"
+
+experience:
+  mode: "analytical"
+  density: "dense"
+  guidance: "minimal"
+  motion: "subtle"
+
+home:
+  headline: "Current profile. Current search. Current movement."
+  intro: "Start from the profile CareerHub is actually using, adjust the search field when needed, then move from opportunity to role analysis and application without losing the evidence chain."
+  slots:
+    - identity
+    - profile_health
+    - search_coverage
+    - next_action
+    - opportunities
+    - pipeline
+    - hrdm
+    - artifacts
+
+navigation:
+  primary:
+    - profile
+    - find
+    - analyse
+    - apply
+    - track
+    - library
+    - home
+  labels:
+    profile: "Profile"
+    find: "Search"
+    analyse: "Analyse"
+    apply: "Apply"
+    track: "Track"
+    library: "Library"
+    home: "Overview"
+
+modules:
+  portfolio: true
+  analytics: true
+  profile_health: true
+  geography: true
+  hrdm_explainer: true
+
+visibility:
+  show_verified_sources: true
+  show_match_scores: true
+  show_hrdm_trace: false
+  show_application_history: true

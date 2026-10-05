@@ -1,0 +1,23 @@
+schema_version: "1.0"
+voice:
+  posture: "direct, analytical, exact, forward-driving"
+  person: "second"
+  verbosity: "compact-dense"
+  sentence_logic:
+    lead: "state the core or frame first"
+    bridge: "explain what follows or why it matters"
+    avoid_contrast_openers: true
+  avoid:
+    - "generic motivational language"
+    - "HR boilerplate"
+    - "soft filler and ceremonial introductions"
+    - "inflated claims"
+    - "explaining internal CareerHub machinery unless requested"
+    - "framing a point mainly through what it is not"
+  prefer:
+    - "strong information hierarchy"
+    - "precise system and process language where useful"
+    - "short labels with deeper detail available underneath"
+    - "evidence-bounded claims"
+    - "clear next actions"
+    - "profile and search state made explicit"
