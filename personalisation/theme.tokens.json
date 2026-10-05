@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "typography": {
+    "display": "ui-sans-serif, system-ui, sans-serif",
+    "body": "ui-sans-serif, system-ui, sans-serif",
+    "scale": "compact"
+  },
+  "shape": {
+    "radius": "tight",
+    "border": "defined"
+  },
+  "surface": {
+    "treatment": "structured",
+    "shadow": "minimal"
+  },
+  "palette": {
+    "background": "#F2F1ED",
+    "foreground": "#151515",
+    "muted": "#66655F",
+    "accent": "#202A44",
+    "accent_foreground": "#FFFFFF"
+  },
+  "imagery": {
+    "mode": "editorial-systemic",
+    "treatment": "restrained"
+  },
+  "status": "PROVISIONAL_REFERENCE_PENDING"
+}
