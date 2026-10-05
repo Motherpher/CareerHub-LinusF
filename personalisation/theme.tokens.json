@@ -6,12 +6,12 @@
     "scale": "compact"
   },
   "shape": {
-    "radius": "tight",
+    "radius": "square",
     "border": "defined"
   },
   "surface": {
-    "treatment": "structured",
-    "shadow": "minimal"
+    "treatment": "editorial",
+    "shadow": "none"
   },
   "palette": {
     "background": "#F2F1ED",
@@ -21,8 +21,7 @@
     "accent_foreground": "#FFFFFF"
   },
   "imagery": {
-    "mode": "editorial-systemic",
-    "treatment": "restrained"
-  },
-  "status": "PROVISIONAL_REFERENCE_PENDING"
+    "mode": "graphic",
+    "treatment": "muted"
+  }
 }
