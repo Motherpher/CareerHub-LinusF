@@ -64,7 +64,7 @@ export default function LibraryClient() {
           <span>Add a career source</span>
           <input type="file" name="file" required accept=".pdf,.doc,.docx,.txt,.md,.rtf,.odt,.png,.jpg,.jpeg" />
         </label>
-        <p className="wish-privacy">Low-fi server upload currently supports files up to about 4.3 MB. Uploaded files are private and active by default.</p>
+        <p className="wish-privacy">Server upload currently supports files up to about 4.3 MB. Uploaded files are private and active by default.</p>
         <button disabled={busy} type="submit">{busy ? 'Working…' : 'Upload document'}</button>
       </form>
 
