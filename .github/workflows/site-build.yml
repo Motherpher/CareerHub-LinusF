@@ -8,18 +8,59 @@ on:
       - 'careerhub.yaml'
       - 'profile/**'
       - 'config/**'
+      - '.github/workflows/site-build.yml'
   push:
     branches: [main]
     paths:
       - 'site/**'
       - 'personalisation/**'
       - 'careerhub.yaml'
+      - '.github/workflows/site-build.yml'
+      - '.github/workflows/careerhub-operations.yml'
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - name: Checkout canonical CareerHub motor
+        uses: actions/checkout@v4
+        with:
+          repository: Motherpher/CareerHubZero
+          ref: main
+          path: .careerhub-zero
+      - name: Sync canonical action-complete shell
+        run: python .careerhub-zero/scripts/sync_web_shell.py .
+      - name: Assert central action bridge
+        run: |
+          test -f .github/workflows/careerhub-operations.yml
+          test -f site/app/api/action/route.ts
+          test -f site/app/api/search/route.ts
+          test -f site/app/api/artifact/route.ts
+          test -f site/app/find/SearchProfileEditor.tsx
+          grep -q 'Run search' site/app/find/SearchRunner.tsx
+          grep -q 'Run HRDM-R and prepare application' site/app/analyse/AnalyseClient.tsx
+          grep -q 'Request evidence review' site/app/library/LibraryClient.tsx
+          grep -q 'Update application' site/app/track/TrackClient.tsx
+      - name: Persist canonical site motor on WP3 branch
+        if: github.event_name == 'pull_request' && github.actor != 'github-actions[bot]'
+        run: |
+          rm -rf .careerhub-zero
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A site
+          if git diff --cached --quiet; then
+            echo "Canonical site motor already persisted."
+          else
+            git commit -m "WP3 sync canonical CareerHub site motor"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
