@@ -1,0 +1,63 @@
+name: WP1 · Full CHZero Sync · Linus
+
+on:
+  push:
+    branches: [wp1/chzero-full-vercel]
+    paths:
+      - ".github/workflows/wp1-chzero-full-sync.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: wp1/chzero-full-vercel
+          fetch-depth: 0
+
+      - name: Checkout canonical CareerHubZero
+        uses: actions/checkout@v4
+        with:
+          repository: Motherpher/CareerHubZero
+          ref: main
+          path: .careerhub-zero
+
+      - name: Sync complete managed CareerHub web product
+        run: python .careerhub-zero/scripts/sync_web_shell.py .
+
+      - name: Seed runtime state required by current motor
+        shell: bash
+        run: |
+          mkdir -p data reports/hrdm/active reports/hrdm/history
+          if [ ! -f data/hrdm_ledger.json ]; then
+            printf '{\n  "schema_version": "1.0",\n  "updated_at": null,\n  "runs": []\n}\n' > data/hrdm_ledger.json
+          fi
+
+      - name: Validate Linus profile against canonical motor
+        env:
+          PYTHONPATH: .careerhub-zero/src
+        run: |
+          python -m pip install -r .careerhub-zero/requirements.txt
+          python .careerhub-zero/scripts/careerhub.py --manifest careerhub.yaml validate
+
+      - name: Build full personalised site
+        working-directory: site
+        run: |
+          npm install
+          npm run build
+
+      - name: Commit exact CHZero product sync
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site data/hrdm_ledger.json
+          if git diff --cached --quiet; then
+            echo "Linus already matches current CHZero managed product."
+            exit 0
+          fi
+          git commit -m "WP1 sync full current CHZero product into Linus CareerHub"
+          git push origin HEAD:wp1/chzero-full-vercel
