@@ -1,0 +1,77 @@
+name: WP3 · Sync and validate action-complete CareerHub
+
+on:
+  push:
+    branches: [wp3/action-completeness]
+    paths:
+      - '.github/workflows/wp3-action-completeness-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: wp3/action-completeness
+          fetch-depth: 0
+
+      - name: Checkout WP3 CareerHubZero motor
+        uses: actions/checkout@v4
+        with:
+          repository: Motherpher/CareerHubZero
+          ref: wp3/action-completeness-clean
+          path: .careerhub-zero
+
+      - name: Sync managed shell and operations bridge
+        run: python .careerhub-zero/scripts/sync_web_shell.py .
+
+      - name: Validate Linus profile against WP3 motor
+        env:
+          PYTHONPATH: .careerhub-zero/src
+        run: |
+          python -m pip install -r .careerhub-zero/requirements.txt
+          python .careerhub-zero/scripts/careerhub.py --manifest careerhub.yaml validate
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: site/package.json
+
+      - name: Build Linus personalised site
+        working-directory: site
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
+      - name: Assert WP3 controls and bridge
+        shell: bash
+        run: |
+          test -f site/app/api/action/route.ts
+          test -f site/app/api/search/route.ts
+          test -f site/app/api/artifact/route.ts
+          test -f site/app/analyse/AnalyseClient.tsx
+          test -f site/app/track/TrackClient.tsx
+          test -f .github/workflows/careerhub-operations.yml
+          grep -q 'Run HRDM-R and prepare application' site/app/analyse/AnalyseClient.tsx
+          grep -q 'Run search' site/app/find/SearchRunner.tsx
+          grep -q 'Request evidence review' site/app/library/LibraryClient.tsx
+          grep -q 'Update application' site/app/track/TrackClient.tsx
+
+      - name: Commit synced WP3 surface
+        shell: bash
+        run: |
+          rm -rf site/.next site/node_modules .careerhub-zero
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site .github/workflows/careerhub-operations.yml
+          git rm -f .github/workflows/wp3-action-completeness-sync.yml
+          if git diff --cached --quiet; then
+            echo 'No WP3 sync changes.'
+            exit 0
+          fi
+          git commit -m 'WP3 sync action-complete CareerHub motor surface'
+          git push origin HEAD:wp3/action-completeness
