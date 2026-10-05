@@ -48,17 +48,17 @@ jobs:
           grep -q 'Run HRDM-R and prepare application' site/app/analyse/AnalyseClient.tsx
           grep -q 'Request evidence review' site/app/library/LibraryClient.tsx
           grep -q 'Update application' site/app/track/TrackClient.tsx
-      - name: Persist canonical motor on WP3 branch
+      - name: Persist canonical site motor on WP3 branch
         if: github.event_name == 'pull_request' && github.actor != 'github-actions[bot]'
         run: |
           rm -rf .careerhub-zero
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A site .github/workflows/careerhub-operations.yml
+          git add -A site
           if git diff --cached --quiet; then
-            echo "Canonical motor already persisted."
+            echo "Canonical site motor already persisted."
           else
-            git commit -m "WP3 sync canonical CareerHub motor"
+            git commit -m "WP3 sync canonical CareerHub site motor"
             git push origin HEAD:${{ github.head_ref }}
           fi
       - uses: actions/setup-node@v4
