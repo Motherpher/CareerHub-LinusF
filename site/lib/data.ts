@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
+import { loadCareerHubManifest } from '@/lib/manifest';
 
 const repoRoot = path.resolve(process.cwd(), '..');
 
@@ -23,23 +24,28 @@ export function readJson<T = any>(relativePath: string): T | null {
 }
 
 export function loadCandidateProfile() {
-  return readYaml<any>('profile/candidate_verified.yaml');
+  const manifest = loadCareerHubManifest();
+  return readYaml<any>(manifest.profile?.path ?? 'profile/candidate_verified.yaml');
 }
 
 export function loadSearchProfile() {
-  return readYaml<any>('config/search_profile.yaml');
+  const manifest = loadCareerHubManifest();
+  return readYaml<any>(manifest.search?.path ?? 'config/search_profile.yaml');
 }
 
 export function loadJobVault() {
-  return readJson<any>('data/job_vault.json') ?? { jobs: [] };
+  const manifest = loadCareerHubManifest();
+  return readJson<any>(manifest.state?.job_vault ?? 'data/job_vault.json') ?? { jobs: [] };
 }
 
 export function loadApplications() {
-  return readJson<any>('data/applications.json') ?? { applications: [] };
+  const manifest = loadCareerHubManifest();
+  return readJson<any>(manifest.state?.applications ?? 'data/applications.json') ?? { applications: [] };
 }
 
 export function loadHrdmLedger() {
-  return readJson<any>('data/hrdm_ledger.json') ?? { runs: [] };
+  const manifest = loadCareerHubManifest();
+  return readJson<any>(manifest.state?.hrdm_ledger ?? 'data/hrdm_ledger.json') ?? { runs: [] };
 }
 
 export function candidateEvidenceCount() {

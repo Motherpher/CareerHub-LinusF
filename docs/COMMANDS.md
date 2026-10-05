@@ -1,11 +1,16 @@
 # CareerHub user contract
 
-The canonical user journey is owned by CareerHubZero:
+The canonical CareerHub journey is owned by `Motherpher/CareerHubZero`:
 
-1. `CareerHub: Find` — source and triage jobs.
-2. `CareerHub: Analyse <URL/id>` — run the full canonical HRDM-R sequence for a selected role.
-3. `CareerHub: Apply <id>` — produce an evidence-bounded application case after analysis.
+1. **Profile** — inspect the active verified Career Profile CareerHub is allowed to use.
+2. **Search** — use the saved Search Profile and apply temporary search-session overrides without rewriting career evidence.
+3. **Analyse** — run the canonical HRDM-R analysis for a selected opportunity.
+4. **Apply** — produce an evidence-bounded application case linked to the role analysis.
+5. **Track** — follow application progression, contacts, interviews, decisions and next actions.
 
-Application status/progression is state inside the Apply workflow; it is not a separate CareerHub product layer.
+Supporting workspaces:
 
-This profiled instance must not create additional canonical commands.
+- **Library** — manage private career-source documents and active/inactive source state.
+- **Improve my CareerHub** — submit development wishes to the central Wish Bank, where they are segmented into motor-level and profile-level development lines.
+
+This personalised repository does not define additional canonical motor commands. Reusable behaviour belongs in CareerHubZero; Linus-specific evidence, search intent, state and presentation remain here.
