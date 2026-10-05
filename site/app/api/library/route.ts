@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   const form = await request.formData();
   const file = form.get('file');
   if (!(file instanceof File)) return NextResponse.json({ error: 'Missing file.' }, { status: 400 });
-  if (file.size > 4_300_000) return NextResponse.json({ error: 'Low-fi server upload currently supports files up to about 4.3 MB.' }, { status: 413 });
+  if (file.size > 4_300_000) return NextResponse.json({ error: 'Server upload currently supports files up to about 4.3 MB.' }, { status: 413 });
   const pathname = `${prefix()}active/${randomUUID()}--${safeName(file.name)}`;
   const blob = await put(pathname, file, { access: 'private', addRandomSuffix: false });
   return NextResponse.json({ uploaded: true, pathname: blob.pathname });
