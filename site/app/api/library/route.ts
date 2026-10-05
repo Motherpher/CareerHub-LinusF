@@ -22,7 +22,7 @@ export async function GET() {
         const parts = blob.pathname.split('/');
         const stored = parts[parts.length - 1] ?? blob.pathname;
         const displayName = stored.replace(/^[a-f0-9-]+--/i, '');
-        return { pathname: blob.pathname, display_name: displayName, active, uploaded_at: blob.uploadedAt, size: blob.size, content_type: blob.contentType };
+        return { pathname: blob.pathname, display_name: displayName, active, uploaded_at: blob.uploadedAt, size: blob.size };
       });
     return NextResponse.json({ files });
   } catch {
