@@ -1,32 +1,41 @@
 # CareerHub — Linus Fast
 
-Private profiled instance of `Motherpher/CareerHubZero`.
+Private personalised CareerHub profile repository connected to the canonical `Motherpher/CareerHubZero` software body.
 
 ## Contract
 
-This repository contains **profile/config/state/artifacts only**. CareerHub motor logic, HRDM core, schemas and reusable workflows belong exclusively to `Motherpher/CareerHubZero`.
+This repository contains **profile, search configuration, durable state, generated artifacts and protected personalisation**. CareerHub motor logic, HRDM core, schemas, reusable UI/runtime code and common workflows belong in `Motherpher/CareerHubZero`.
 
 The visible CareerHub journey is:
 
-**Find jobs → Analyse? → Apply**
+**Profile → Search → Analyse → Apply → Track**
 
-## Profile-specific content
+Supporting workspaces:
 
-- `profile/candidate.yaml` — evidence-bounded Linus profile
-- `profile/evidence_index.yaml` — provenance and verification support
-- `profile/surfaces/` — alternative evidence-preserving profile emphasis
-- `config/search_profile.yaml` — Linus-specific search configuration
-- `data/job_vault.json` — sourced-job state
-- `data/applications.json` — application/progression state
-- `hrdm/runs/` — generated HRDM run artifacts
-- `applications/cases/` — generated application artifacts
-- `dashboard/` — generated view artifacts
+- **Library** — manage private source documents and active/inactive source state.
+- **Improve my CareerHub** — submit usability/development wishes to the central Wish Bank.
+
+## Active profile
+
+- `profile/candidate_verified.yaml` — active verified-career evidence profile used by CareerHub.
+- `profile/evidence_index.yaml` — provenance and verification support.
+- `profile/surfaces/` — evidence-preserving career-surface emphasis.
+- `config/search_profile.yaml` — Linus-specific Search Profile.
+- `personalisation/` — protected Linus presentation, voice and design derivation.
+
+## State and artifacts
+
+- `data/job_vault.json` — sourced opportunity state.
+- `data/applications.json` — application/progression state.
+- `data/hrdm_ledger.json` — HRDM analysis ledger when present.
+- `reports/hrdm/` — active and historical HRDM artifacts.
+- `applications/cases/` — generated application artifacts.
 
 ## Engine
 
-Canonical engine: `Motherpher/CareerHubZero`.
+Canonical body: `Motherpher/CareerHubZero`.
 
-Current stack version is generated/synchronised from ZeroHub and recorded in `instance.yaml` and `stack.lock.yaml`.
+`careerhub.yaml` is the versionless runtime manifest. Legacy per-profile motor locks are not part of the current unified-body architecture.
 
 ## Privacy
 
@@ -34,4 +43,4 @@ Direct contact details, date of birth, national identifiers and street address a
 
 ## Non-drift rule
 
-Profile files may change evidence, preferences and emphasis. This repository must not contain a local CareerHub engine or introduce new base commands/subsystems.
+Profile files may change evidence, preferences, search intent and presentation. This repository must not contain a local CareerHub motor or redefine reusable motor behaviour that belongs centrally.
