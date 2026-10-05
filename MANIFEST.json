@@ -1,9 +1,9 @@
 {
   "instance": "linus-fast",
-  "engine": "Motherpher/CareerHubZero@0.2.2-alpha",
-  "contract": "profile-config-state-artifacts-only",
-  "canonical_state": ["data/job_vault.json", "data/applications.json"],
-  "profile_material": ["profile/candidate.yaml", "profile/evidence_index.yaml", "profile/surfaces/", "config/search_profile.yaml"],
+  "engine": "Motherpher/CareerHubZero",
+  "contract": "unified-body-profile-config-state-artifacts-only",
+  "canonical_state": ["data/job_vault.json", "data/applications.json", "data/hrdm_ledger.json"],
+  "profile_material": ["profile/candidate_verified.yaml", "profile/evidence_index.yaml", "profile/surfaces/", "config/search_profile.yaml", "personalisation/"],
   "motor_local": false,
   "contains_personal_identifiers": false,
   "drift_status": "ALIGNED"
