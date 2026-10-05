@@ -8,7 +8,6 @@ type LibraryFile = {
   active: boolean;
   uploaded_at: string;
   size: number;
-  content_type?: string;
 };
 
 export default function LibraryClient() {
@@ -39,9 +38,7 @@ export default function LibraryClient() {
   async function manage(file: LibraryFile, action: 'activate' | 'deactivate' | 'erase') {
     if (action === 'erase' && !window.confirm(`Erase ${file.display_name} from your private CareerHub library?`)) return;
     setBusy(true); setMessage('');
-    const response = await fetch('/api/library', {
-      method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ pathname: file.pathname, action })
-    });
+    const response = await fetch('/api/library', { method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ pathname: file.pathname, action }) });
     const data = await response.json().catch(() => ({}));
     const success = action === 'erase' ? 'Source erased.' : action === 'activate' ? 'Source activated.' : 'Source deactivated.';
     setMessage(response.ok ? success : (data.error ?? 'Update failed.'));
@@ -60,34 +57,13 @@ export default function LibraryClient() {
   return (
     <div className="section-stack">
       <form className="wish-form" onSubmit={upload}>
-        <label>
-          <span>Add a career source</span>
-          <input type="file" name="file" required accept=".pdf,.doc,.docx,.txt,.md,.rtf,.odt,.png,.jpg,.jpeg" />
-        </label>
+        <label><span>Add a career source</span><input type="file" name="file" required accept=".pdf,.doc,.docx,.txt,.md,.rtf,.odt,.png,.jpg,.jpeg" /></label>
         <p className="wish-privacy">Server upload currently supports files up to about 4.3 MB. Uploaded files are private and active by default.</p>
         <button disabled={busy} type="submit">{busy ? 'Working…' : 'Upload document'}</button>
       </form>
-
-      <div className="inline-actions">
-        <button className="button button--primary" type="button" disabled={busy} onClick={() => void rebuildIndex()}>Reload CareerHub Library</button>
-      </div>
+      <div className="inline-actions"><button className="button button--primary" type="button" disabled={busy} onClick={() => void rebuildIndex()}>Reload CareerHub Library</button></div>
       {message ? <p role="status" className="wish-status">{message}</p> : null}
-
-      <div className="section-stack">
-        {files.length ? files.map((file) => (
-          <div className="row" key={file.pathname}>
-            <div>
-              <strong>{file.display_name}</strong>
-              <div className="muted">{file.active ? 'ACTIVE — available to CareerHub' : 'INACTIVE — retained but excluded'} · {Math.max(1, Math.round(file.size / 1024))} KB</div>
-            </div>
-            <div className="inline-actions">
-              <a className="button" href={`/api/library/file?pathname=${encodeURIComponent(file.pathname)}`} target="_blank" rel="noreferrer">Open</a>
-              <button className="button" type="button" disabled={busy} onClick={() => void manage(file, file.active ? 'deactivate' : 'activate')}>{file.active ? 'Deactivate' : 'Activate'}</button>
-              <button className="button" type="button" disabled={busy} onClick={() => void manage(file, 'erase')}>Erase</button>
-            </div>
-          </div>
-        )) : <div className="empty-state">No uploaded library sources yet.</div>}
-      </div>
+      <div className="section-stack">{files.length ? files.map((file) => <div className="row" key={file.pathname}><div><strong>{file.display_name}</strong><div className="muted">{file.active ? 'ACTIVE — available to CareerHub' : 'INACTIVE — retained but excluded'} · {Math.max(1, Math.round(file.size / 1024))} KB</div></div><div className="inline-actions"><a className="button" href={`/api/library/file?pathname=${encodeURIComponent(file.pathname)}`} target="_blank" rel="noreferrer">Open</a><button className="button" type="button" disabled={busy} onClick={() => void manage(file, file.active ? 'deactivate' : 'activate')}>{file.active ? 'Deactivate' : 'Activate'}</button><button className="button" type="button" disabled={busy} onClick={() => void manage(file, 'erase')}>Erase</button></div></div>) : <div className="empty-state">No uploaded library sources yet.</div>}</div>
     </div>
   );
 }

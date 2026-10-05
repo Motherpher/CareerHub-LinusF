@@ -3,31 +3,19 @@ import { NextResponse } from 'next/server';
 import { randomUUID } from 'node:crypto';
 import { loadCareerHubManifest } from '@/lib/manifest';
 
-function prefix() {
-  const manifest = loadCareerHubManifest();
-  return `library/${manifest.profile_id}/`;
-}
-
-function safeName(name: string) {
-  return name.replace(/[^a-zA-Z0-9._-]+/g, '-').replace(/-+/g, '-').slice(0, 140) || 'document';
-}
+function prefix() { return `library/${loadCareerHubManifest().profile_id}/`; }
+function safeName(name: string) { return name.replace(/[^a-zA-Z0-9._-]+/g, '-').replace(/-+/g, '-').slice(0, 140) || 'document'; }
 
 export async function GET() {
   try {
     const result = await list({ prefix: prefix() });
-    const files = result.blobs
-      .filter((blob) => !blob.pathname.includes('/indexes/'))
-      .map((blob) => {
-        const active = blob.pathname.includes('/active/');
-        const parts = blob.pathname.split('/');
-        const stored = parts[parts.length - 1] ?? blob.pathname;
-        const displayName = stored.replace(/^[a-f0-9-]+--/i, '');
-        return { pathname: blob.pathname, display_name: displayName, active, uploaded_at: blob.uploadedAt, size: blob.size };
-      });
+    const files = result.blobs.filter((blob) => !blob.pathname.includes('/indexes/')).map((blob) => {
+      const active = blob.pathname.includes('/active/');
+      const stored = blob.pathname.split('/').pop() ?? blob.pathname;
+      return { pathname: blob.pathname, display_name: stored.replace(/^[a-f0-9-]+--/i, ''), active, uploaded_at: blob.uploadedAt, size: blob.size };
+    });
     return NextResponse.json({ files });
-  } catch {
-    return NextResponse.json({ files: [], error: 'Library storage is not connected yet.' }, { status: 503 });
-  }
+  } catch { return NextResponse.json({ files: [], error: 'Library storage is not connected yet.' }, { status: 503 }); }
 }
 
 export async function POST(request: Request) {
@@ -45,15 +33,9 @@ export async function PATCH(request: Request) {
   const pathname = typeof body?.pathname === 'string' ? body.pathname : '';
   const action = body?.action;
   if (!pathname.startsWith(prefix())) return NextResponse.json({ error: 'Invalid library path.' }, { status: 400 });
-
-  if (action === 'erase') {
-    await removeBlob(pathname);
-    return NextResponse.json({ erased: true });
-  }
-
+  if (action === 'erase') { await removeBlob(pathname); return NextResponse.json({ erased: true }); }
   if (action !== 'activate' && action !== 'deactivate') return NextResponse.json({ error: 'Invalid action.' }, { status: 400 });
-  const targetState = action === 'activate' ? 'active' : 'inactive';
-  const target = pathname.replace(/\/(active|inactive)\//, `/${targetState}/`);
+  const target = pathname.replace(/\/(active|inactive)\//, `/${action === 'activate' ? 'active' : 'inactive'}/`);
   if (target === pathname) return NextResponse.json({ updated: true, pathname });
   const blob = await rename(pathname, target, { access: 'private' });
   return NextResponse.json({ updated: true, pathname: blob.pathname });
