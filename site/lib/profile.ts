@@ -2,6 +2,22 @@ import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 
+export type ProfileRoomLink = {
+  label: string;
+  href: string;
+};
+
+export type ProfileRoom = {
+  id: string;
+  label: string;
+  eyebrow?: string;
+  description: string;
+  href: string;
+  cta?: string;
+  features?: string[];
+  links?: ProfileRoomLink[];
+};
+
 export type HubProfile = {
   schema_version: '1.0';
   identity: {
@@ -23,6 +39,12 @@ export type HubProfile = {
   navigation: {
     primary: string[];
     labels?: Record<string, string>;
+  };
+  profile_shell?: {
+    enabled?: boolean;
+    headline?: string;
+    intro?: string;
+    rooms?: ProfileRoom[];
   };
 };
 
@@ -63,7 +85,13 @@ export function cssVars(theme: ThemeTokens): Record<string, string> {
     '--ch-muted': p.muted ?? '#6B6B68',
     '--ch-accent': p.accent ?? '#2357D8',
     '--ch-accent-fg': p.accent_foreground ?? '#FFFFFF',
+    '--ch-surface': p.surface ?? p.background ?? '#F6F5F2',
+    '--ch-surface-alt': p.surface_alt ?? '#ECEAE4',
+    '--ch-border': p.border ?? '#C9C5BC',
+    '--ch-accent-soft': p.accent_soft ?? '#E6ECFA',
     '--ch-display-font': theme.typography?.display ?? 'ui-sans-serif, system-ui, sans-serif',
-    '--ch-body-font': theme.typography?.body ?? 'ui-sans-serif, system-ui, sans-serif'
+    '--ch-body-font': theme.typography?.body ?? 'ui-sans-serif, system-ui, sans-serif',
+    '--ch-radius': theme.shape?.radius ?? '8px',
+    '--ch-shadow': theme.surface?.shadow ?? 'none'
   };
 }

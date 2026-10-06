@@ -1,33 +1,60 @@
+import CareerOverview from '@/app/_components/CareerOverview';
+import MotorGuide from '@/app/_components/MotorGuide';
+import { loadSearchProfile } from '@/lib/data';
 import { loadHubProfile } from '@/lib/profile';
-import { candidateEvidenceCount, careerSourceCount, loadApplications, loadJobVault, loadSearchProfile } from '@/lib/data';
 
-const labels: Record<string, string> = { home: 'Overview', profile: 'Profile', find: 'Search', analyse: 'Analyse', apply: 'Apply', track: 'Track', library: 'Library' };
+const fallbackLabels: Record<string, string> = {
+  home: 'Home',
+  writer: 'Portfolio',
+  career: 'CareerHub',
+  profile: 'Profile',
+  find: 'Search',
+  analyse: 'Analyse',
+  apply: 'Apply',
+  track: 'Track',
+  library: 'Library'
+};
 
 export default function HomePage() {
   const hub = loadHubProfile();
   const search = loadSearchProfile();
-  const jobs = loadJobVault()?.jobs ?? [];
-  const applications = loadApplications()?.applications ?? [];
-  const anchors = search?.geographies?.anchors ?? [];
-  const lanes = search?.lanes ?? [];
-  const evidence = candidateEvidenceCount();
-  const sources = careerSourceCount();
-  const navLabels = { ...labels, ...(hub.navigation.labels ?? {}) };
+  const shell = hub.profile_shell;
+
+  if (!shell?.enabled) return <CareerOverview />;
+
+  const rooms = shell.rooms ?? [];
+  const labels = { ...fallbackLabels, ...(hub.navigation.labels ?? {}) };
+  const lanes = Array.isArray(search?.lanes) ? search.lanes : [];
 
   return (
-    <main className={`hub hub--${hub.experience.mode} hub--${hub.experience.density}`}>
-      <header className="hero">
-        <div><p className="eyebrow">{hub.identity.display_name}</p><h1>{hub.home.headline ?? 'Career workspace'}</h1><p className="lead">{hub.home.intro ?? hub.identity.strapline}</p></div>
-        <nav aria-label="Primary" className="nav">{hub.navigation.primary.map((item) => <a href={`/${item === 'home' ? '' : item}`} key={item}>{navLabels[item] ?? item}</a>)}</nav>
+    <main className={`hub hub--profile hub--${hub.experience.mode} hub--${hub.experience.density}`}>
+      <header className="hero hero--profile">
+        <div className="hero-copy">
+          <p className="eyebrow">Personal professional workspace</p>
+          <h1>{shell.headline ?? hub.identity.display_name}</h1>
+          <p className="lead">{shell.intro ?? 'Choose the workspace you want to enter.'}</p>
+        </div>
+        <nav aria-label="Primary" className="nav nav--profile">
+          {hub.navigation.primary.map((item) => <a href={`/${item === 'home' ? '' : item}`} key={item}>{labels[item] ?? item}</a>)}
+        </nav>
       </header>
-      <section className="action-band" aria-label="Primary CareerHub actions"><a className="action action--primary" href="/profile">See current profile</a><a className="action" href="/find">Search with my settings</a><a className="action" href="/library">Update my sources</a></section>
-      <section className="grid" aria-label="CareerHub dashboard">
-        <article className="card card--wide"><p className="card-kicker">Current direction</p><h2>{hub.identity.strapline}</h2><div className="tag-row">{lanes.slice(0, 6).map((lane: any) => <span className="tag" key={lane.lane_id}>{lane.name}</span>)}</div></article>
-        <article className="card"><p className="card-kicker">Profile state</p><p className="stat">{evidence}</p><p>verified evidence claims from {sources} governed career sources.</p></article>
-        <article className="card"><p className="card-kicker">Search geography</p><h2>{anchors.join(' + ') || 'Not configured'}</h2><p>{search?.geographies?.remote_allowed ? 'Remote opportunities are also allowed.' : 'Remote search is off.'}</p></article>
-        <article className="card"><p className="card-kicker">Opportunity queue</p><p className="stat">{jobs.length}</p><p>roles currently stored in the job vault.</p></article>
-        <article className="card"><p className="card-kicker">Applications</p><p className="stat">{applications.length}</p><p>applications currently tracked.</p></article>
-        <article className="card card--wide"><p className="card-kicker">Next useful move</p><h2>Check the profile, confirm search scope, then search.</h2><p>The site keeps the active evidence profile visible before job discovery so matching never becomes a black box.</p></article>
+
+      <MotorGuide profileName={hub.identity.display_name} lanes={lanes} />
+
+      <section className="room-grid" aria-label="Profile rooms">
+        {rooms.map((room, index) => (
+          <article className={`room-card room-card--${room.id}`} key={room.id}>
+            <div className="room-card__topline"><p className="card-kicker">{room.eyebrow ?? 'Workspace'}</p><span className="room-index">0{index + 1}</span></div>
+            <div className="room-card__body"><h2>{room.label}</h2><p className="room-description">{room.description}</p></div>
+            {room.features?.length ? <ul className="room-features">{room.features.map((feature) => <li key={feature}>{feature}</li>)}</ul> : null}
+            <a className="room-cta" href={room.href}><span>{room.cta ?? `Open ${room.label}`}</span><span aria-hidden="true">↗</span></a>
+          </article>
+        ))}
+      </section>
+
+      <section className="profile-utility" aria-label="Profile-level actions">
+        <div><p className="meta-label">Shared profile layer</p><p>Verified professional evidence and source material sit beneath both rooms without merging their operational state.</p></div>
+        <div className="inline-actions"><a className="button" href="/profile">Career evidence</a><a className="button" href="/find">Search lanes</a><a className="button" href="/library">Source library</a></div>
       </section>
     </main>
   );
