@@ -46,7 +46,7 @@ jobs:
           test -f site/app/api/artifact/route.ts
           test -f site/app/find/SearchProfileEditor.tsx
           grep -q 'Run search' site/app/find/SearchRunner.tsx
-          grep -q 'Run HRDM-R and prepare application' site/app/analyse/AnalyseClient.tsx
+          grep -q 'Analyse job opening' site/app/analyse/AnalyseClient.tsx
           grep -q 'Request evidence review' site/app/library/LibraryClient.tsx
           grep -q 'Update application' site/app/track/TrackClient.tsx
           rm -rf .careerhub-zero
