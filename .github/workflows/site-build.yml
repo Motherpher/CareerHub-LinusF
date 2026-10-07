@@ -45,10 +45,10 @@ jobs:
           test -f site/app/api/search/route.ts
           test -f site/app/api/artifact/route.ts
           test -f site/app/find/SearchProfileEditor.tsx
-          grep -q 'Run search' site/app/find/SearchRunner.tsx
-          grep -q 'Run HRDM-R and prepare application' site/app/analyse/AnalyseClient.tsx
-          grep -q 'Request evidence review' site/app/library/LibraryClient.tsx
-          grep -q 'Update application' site/app/track/TrackClient.tsx
+          grep -q "fetch('/api/search'" site/app/find/SearchRunner.tsx
+          grep -q "operation: 'analyse_role'" site/app/analyse/AnalyseClient.tsx
+          grep -q "fetch('/api/library'" site/app/library/LibraryClient.tsx
+          grep -q "dispatch('track_status'" site/app/track/TrackClient.tsx
           rm -rf .careerhub-zero
           git diff --exit-code -- site .github/workflows/careerhub-operations.yml
       - name: Verify protected personalisation was untouched
